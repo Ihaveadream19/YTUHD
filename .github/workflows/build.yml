@@ -52,7 +52,7 @@ jobs:
 
       # ─────────────────────────────
 
-      # SDKs
+      # SDK
 
       # ─────────────────────────────
 
@@ -66,11 +66,49 @@ jobs:
 
       # ─────────────────────────────
 
-      # Build tweak
+      # YouTubeHeader (PINNED OLD VERSION)
 
       # ─────────────────────────────
 
-      - name: Build YTUHD
+      - name: Setup YouTubeHeader
+
+        run: |
+
+          git clone https://github.com/PoomSmart/YouTubeHeader.git YouTubeHeader
+
+          cd YouTubeHeader
+
+          git checkout 6a3c2f0
+
+          cd ..
+
+          mkdir -p $HOME/theos/include/YouTubeHeader
+
+          cp -R YouTubeHeader/* $HOME/theos/include/YouTubeHeader/
+
+      # ─────────────────────────────
+
+      # PSHeader (optional, falls gebraucht)
+
+      # ─────────────────────────────
+
+      - name: Setup PSHeader
+
+        run: |
+
+          git clone https://github.com/Ihaveadream19/PSHeader.git PSHeader
+
+          mkdir -p $HOME/theos/include/PSHeader
+
+          cp -R PSHeader/* $HOME/theos/include/PSHeader/
+
+      # ─────────────────────────────
+
+      # Build
+
+      # ─────────────────────────────
+
+      - name: Build tweak
 
         run: |
 
@@ -90,7 +128,7 @@ jobs:
 
       # ─────────────────────────────
 
-      # Collect output
+      # Collect dylib
 
       # ─────────────────────────────
 
@@ -104,7 +142,7 @@ jobs:
 
       # ─────────────────────────────
 
-      # Upload artifact
+      # Upload
 
       # ─────────────────────────────
 
