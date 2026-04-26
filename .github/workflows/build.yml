@@ -66,7 +66,7 @@ jobs:
 
       # ─────────────────────────────
 
-      # YouTubeHeader (PINNED OLD VERSION)
+      # YouTubeHeader (latest)
 
       # ─────────────────────────────
 
@@ -76,19 +76,13 @@ jobs:
 
           git clone https://github.com/PoomSmart/YouTubeHeader.git YouTubeHeader
 
-          cd YouTubeHeader
-
-          git checkout 6a3c2f0
-
-          cd ..
-
           mkdir -p $HOME/theos/include/YouTubeHeader
 
           cp -R YouTubeHeader/* $HOME/theos/include/YouTubeHeader/
 
       # ─────────────────────────────
 
-      # PSHeader (optional, falls gebraucht)
+      # PSHeader
 
       # ─────────────────────────────
 
@@ -118,17 +112,17 @@ jobs:
 
       # ─────────────────────────────
 
-      # Find dylib
+      # Find output
 
       # ─────────────────────────────
 
-      - name: Find output
+      - name: Find dylib
 
         run: find . -name "*.dylib"
 
       # ─────────────────────────────
 
-      # Collect dylib
+      # Collect output
 
       # ─────────────────────────────
 
@@ -142,11 +136,11 @@ jobs:
 
       # ─────────────────────────────
 
-      # Upload
+      # Upload artifact
 
       # ─────────────────────────────
 
-      - name: Upload
+      - name: Upload dylib
 
         uses: actions/upload-artifact@v4
 
